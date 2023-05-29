@@ -23,5 +23,8 @@ if uploaded_files is not None:
     images = np.vstack([x])
 
     pred = new_model.predict(images)
+    conf = np.max(pred)*100
     pred = class_names[np.argmax(pred)]
+
     st.header(f"Predictions: {pred}")
+    st.header(f"Predictions: {round(conf)} %")
